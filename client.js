@@ -5,7 +5,6 @@ const connect = function() {
 		port: 50541
 	});
 
-	// interpret incoming data as text
 	conn.setEncoding('utf8');
 	conn.on('data', (data) => {
 		console.log('Server says: ', data);
@@ -28,6 +27,3 @@ const connect = function() {
 module.exports = {
 	connect
 };
-
-console.log('Connecting ...');
-connect();

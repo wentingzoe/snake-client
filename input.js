@@ -5,11 +5,11 @@ const setupInput = function(conn) {
 	stdin.setRawMode(true);
 	stdin.setEncoding('utf8');
 	stdin.resume();
-	stdin.on('data', handleUserInput);
+	stdin.on('data', (key) => handleUserInput(key));
 	return stdin;
 };
+
 const handleUserInput = function(key) {
-	// your code here
 	if (key === '\u0003') {
 		process.exit();
 	} else if (key === 'w') {
@@ -20,7 +20,9 @@ const handleUserInput = function(key) {
 		connection.write('Move: down');
 	} else if (key === 'd') {
 		connection.write('Move: right');
-	} 
+	} else if (key === 'q') {
+		connection.write('LOL LOL');
+	}
 };
 module.exports = {
 	setupInput
